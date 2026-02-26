@@ -1,11 +1,11 @@
 output "private_subnet_ids" {
   description = "A list of private subnet ids"
-  value       = module.vpc[local.region].private_subnets
+  value       = "" 
 }
 
 output "public_subnet_ids" {
   description = "A list of public subnet ids"
-  value       = module.vpc[local.region].public_subnets
+  value       = "subnet-06a3185b09b262633,subnet-0da23f58db0a66275,subnet-0cd045f6b77e33cf5" 
 }
 
 output "availability_zones" {
