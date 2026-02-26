@@ -1,7 +1,7 @@
 resource "aws_security_group" "workers" {
   name        = format("vcluster-workers-sg-%s", random_id.suffix.hex)
   description = "Security group for worker nodes: allow intra-VPC traffic, kubelet, NodePort, and outbound internet"
-  vpc_id      = module.vpc[local.region].vpc_id
+  vpc_id      = "vpc-09441e22f19b78306"
 
   # Allow all outbound
   egress {
