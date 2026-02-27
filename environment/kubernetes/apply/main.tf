@@ -11,33 +11,33 @@ locals {
   }
 }
 
-resource "kubernetes_manifest" "apply" {
-  for_each = local.manifest_map
-  manifest = each.value
+#resource "kubernetes_manifest" "apply" {
+#  for_each = local.manifest_map
+#  manifest = each.value
 
-  wait { rollout = false }
+#  wait { rollout = false }
 
-  field_manager {
-    name            = "terraform"
-    force_conflicts = true
-  }
+#  field_manager {
+#    name            = "terraform"
+#    force_conflicts = true
+#  }
 
-  computed_fields = concat([
-    "metadata.annotations",
-    "metadata.labels",
-    "metadata.clusterName",
-    "metadata.creationTimestamp",
-    "metadata.deletionGracePeriodSeconds",
-    "metadata.deletionTimestamp",
-    "metadata.finalizers",
-    "metadata.generateName",
-    "metadata.generation",
-    "metadata.managedFields",
-    "metadata.ownerReferences",
-    "metadata.resourceVersion",
-    "metadata.uid",
-    "status",
-  ],
-  var.computed_fields,
-  )
-}
+#  computed_fields = concat([
+#    "metadata.annotations",
+#    "metadata.labels",
+#    "metadata.clusterName",
+#    "metadata.creationTimestamp",
+#    "metadata.deletionGracePeriodSeconds",
+#    "metadata.deletionTimestamp",
+#    "metadata.finalizers",
+#    "metadata.generateName",
+#    "metadata.generation",
+#    "metadata.managedFields",
+#    "metadata.ownerReferences",
+#    "metadata.resourceVersion",
+#    "metadata.uid",
+#    "status",
+#  ],
+#  var.computed_fields,
+#  )
+#}
