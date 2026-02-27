@@ -8,29 +8,29 @@ module "kubernetes_apply_admission_policy" {
   }
 }
 
-module "kubernetes_apply_ccm" {
-  source = "./apply"
+#module "kubernetes_apply_ccm" {
+#  source = "./apply"
 
-  for_each = local.ccm_enabled ? { "enabled" = true } : {}
+#  for_each = local.ccm_enabled ? { "enabled" = true } : {}
 
-  manifest_file = "${path.module}/manifests/ccm.yaml.tftpl"
-  template_vars = {
-    node_provider_name = local.node_provider_name
-    vcluster_name      = local.vcluster_name
-    controllers        = local.ccm_lb_enabled ? "*" : "*,-service"
-    suffix             = local.suffix
-  }
-}
+#  manifest_file = "${path.module}/manifests/ccm.yaml.tftpl"
+#  template_vars = {
+#    node_provider_name = local.node_provider_name
+#    vcluster_name      = local.vcluster_name
+#    controllers        = local.ccm_lb_enabled ? "*" : "*,-service"
+#    suffix             = local.suffix
+#  }
+#}
 
-module "kubernetes_apply_csi" {
-  source = "./apply"
+#module "kubernetes_apply_csi" {
+#  source = "./apply"
+#
+#  for_each = local.csi_enabled ? { "enabled" = true } : {}
 
-  for_each = local.csi_enabled ? { "enabled" = true } : {}
-
-  manifest_file = "${path.module}/manifests/csi.yaml.tftpl"
-  template_vars = {
-    node_provider_name = local.node_provider_name
-    availability_zones = jsonencode(local.availability_zones)
-    suffix             = local.suffix
-  }
-}
+#  manifest_file = "${path.module}/manifests/csi.yaml.tftpl"
+#  template_vars = {
+#    node_provider_name = local.node_provider_name
+#    availability_zones = jsonencode(local.availability_zones)
+#    suffix             = local.suffix
+#  }
+#}
