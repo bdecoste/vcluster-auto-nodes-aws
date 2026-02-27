@@ -1,11 +1,11 @@
 output "private_subnet_ids" {
   description = "A list of private subnet ids"
-  value       = "" 
+  value       = "subnet-06a3185b09b262633,subnet-0da23f58db0a66275,subnet-0cd045f6b77e33cf5" 
 }
 
 output "public_subnet_ids" {
   description = "A list of public subnet ids"
-  value       = "subnet-06a3185b09b262633,subnet-0da23f58db0a66275,subnet-0cd045f6b77e33cf5" 
+  value       = "" 
 }
 
 output "availability_zones" {
